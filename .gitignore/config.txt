@@ -1,0 +1,4 @@
+//Here is some important methods
+//covert String to character Array
+String s="gaurav";
+char c[]=s.toCharArray()
