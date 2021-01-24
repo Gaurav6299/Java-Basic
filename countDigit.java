@@ -11,6 +11,6 @@ if(s.charAt(i)>=48 && s.charAt(i)<=57)
 count+=1;
 }
 }
-System.out.println(count);
+System.out.println("the total number of digit digit is:"+count);
 }
 }
