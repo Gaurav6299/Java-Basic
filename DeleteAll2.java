@@ -1,4 +1,4 @@
-class reverseLink
+class DeleteAll2
 {
 Node head;
 class Node
@@ -11,7 +11,6 @@ data=d;
 next=null;
 }
 }
-
 void append(int data)
 {
 Node x=new Node(data);
@@ -20,7 +19,6 @@ if(head==null)
 head=x;
 return;
 }
-
 Node temp=head;
 while(temp.next!=null)
 {
@@ -40,36 +38,44 @@ temp=temp.next;
 System.out.println("null");
 }
 
-void reverse()
+Node Delete()
 {
 Node temp=head;
-Node prev=null;
-Node next=null;
-while(temp!=null)
-{                                                                                       
-next=temp.next;
-temp.next=prev;
-prev=temp;
-temp=next;
-}
-temp=prev;
+Node head1=new Node(-1);
+Node prev=head1;
 while(temp!=null)
 {
-System.out.print(temp.data+"->");
+Node start=temp;
+int count=0;
+while(temp!=null && start.data==temp.data)
+{
 temp=temp.next;
+count++;
 }
-System.out.println("null");
+if(count>1)
+{
+start=temp;
+}
+else
+{
+prev.next=start;
+prev=prev.next;
+}
+}
+prev.next=null;
+return head1.next;
 }
 
 public static void main(String args[])
 {
-reverseLink r=new reverseLink();
-r.append(10);
-r.append(20);
-r.append(30);
-r.append(40);
-r.print();
-System.out.println("reverse Linkedlist");
-r.reverse();
+DeleteAll2 s=new DeleteAll2();
+s.append(1);
+s.append(2);
+s.append(2);
+s.append(3);
+s.append(4);
+s.print();
+Node x=s.Delete();
+s.print();
 }
 }

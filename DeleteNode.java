@@ -1,7 +1,7 @@
-class reverseLink
+class DeleteNode
 {
 Node head;
-class Node
+static class Node
 {
 int data;
 Node next;
@@ -20,7 +20,6 @@ if(head==null)
 head=x;
 return;
 }
-
 Node temp=head;
 while(temp.next!=null)
 {
@@ -40,36 +39,41 @@ temp=temp.next;
 System.out.println("null");
 }
 
-void reverse()
+boolean isPalindrome()
 {
 Node temp=head;
-Node prev=null;
-Node next=null;
-while(temp!=null)
-{                                                                                       
-next=temp.next;
-temp.next=prev;
-prev=temp;
-temp=next;
-}
-temp=prev;
+boolean isPalin=false;
+Stack<Integer> s=new Stack<>();
 while(temp!=null)
 {
-System.out.print(temp.data+"->");
+s.push(temp.data);
 temp=temp.next;
 }
-System.out.println("null");
+temp=head;
+
+while(temp!=null)
+{
+if(temp.data==s.pop())
+{
+isPalin=true;
+}
+else
+{
+isPalin=false;
+break;
+}
+temp=temp.next;
+}
+return isPalin;
 }
 
 public static void main(String args[])
 {
-reverseLink r=new reverseLink();
-r.append(10);
-r.append(20);
-r.append(30);
-r.append(40);
-r.print();
-System.out.println("reverse Linkedlist");
-r.reverse();
+DeleteNode s=new DeleteNode();
+s.append(10);
+s.append(11);
+s.append(10);
+s.print();
+System.out.println(s.isPalindrome());
 }
 }

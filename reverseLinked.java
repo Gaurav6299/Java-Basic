@@ -1,4 +1,4 @@
-class reverseLink
+class reverseLinked
 {
 Node head;
 class Node
@@ -20,7 +20,6 @@ if(head==null)
 head=x;
 return;
 }
-
 Node temp=head;
 while(temp.next!=null)
 {
@@ -46,7 +45,7 @@ Node temp=head;
 Node prev=null;
 Node next=null;
 while(temp!=null)
-{                                                                                       
+{
 next=temp.next;
 temp.next=prev;
 prev=temp;
@@ -63,13 +62,13 @@ System.out.println("null");
 
 public static void main(String args[])
 {
-reverseLink r=new reverseLink();
+reverseLinked r=new reverseLinked();
 r.append(10);
-r.append(20);
-r.append(30);
-r.append(40);
+r.append(11);
+r.append(12);
+r.append(13);
+r.append(14);
 r.print();
-System.out.println("reverse Linkedlist");
 r.reverse();
 }
 }
